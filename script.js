@@ -1,89 +1,230 @@
-// Histórico de navegação
-let historyStack = [];
+// ==============================
+// GABIPEDIA v2
+// Engine Principal
+// ==============================
 
-// Página atual
-let currentPage = "home";
+class Gabipedia {
 
-// Cria os cards da Home
-function loadHome() {
+    constructor(){
 
-    const homeGrid = document.getElementById("homeGrid");
+        // Histórico de navegação
+        this.history = [];
 
-    homeGrid.innerHTML = "";
+        // Página atual
+        this.current = null;
 
-    categorias.forEach(categoria => {
+        // Referências do HTML
+        this.homePage = document.getElementById("home");
+        this.folderPage = document.getElementById("folder");
 
-        homeGrid.innerHTML += `
+        this.homeGrid = document.getElementById("homeGrid");
+        this.folderGrid = document.getElementById("folderGrid");
+        this.folderTitle = document.getElementById("folderTitle");
 
-        <div class="card" onclick="openFolder('${categoria.id}')">
+    }
 
-            <img src="${categoria.imagem}" alt="${categoria.nome}">
+    // --------------------------
+    // Iniciar aplicação
+    // --------------------------
 
-            <h2>${categoria.nome}</h2>
+    start(){
 
-        </div>
+        this.renderHome();
 
-        `;
+    }
 
-    });
+    // --------------------------
+    // Mostrar Home
+    // --------------------------
 
-}
+    renderHome(){
 
-// Abre uma pasta
-function openFolder(id){
+        this.current = null;
 
-    historyStack.push(currentPage);
+        this.showPage("home");
 
-    currentPage = id;
+        this.homeGrid.innerHTML = "";
 
-    document.querySelectorAll(".page").forEach(page=>{
+        categorias.forEach(categoria=>{
 
-        page.classList.remove("active");
+            const card = this.createCard(
 
-    });
+                categoria.nome,
 
-    document.getElementById("folder").classList.add("active");
+                categoria.imagem,
 
-    const pasta = dados[id];
+                ()=>{
 
-    document.getElementById("folderTitle").innerText = pasta.nome;
+                    this.open(categoria.id);
 
-    const folderGrid = document.getElementById("folderGrid");
+                }
 
-    folderGrid.innerHTML = "";
+            );
+
+            this.homeGrid.appendChild(card);
+
+        });
+
+    }
+
+    // --------------------------
+    // Abrir qualquer pasta
+    // --------------------------
+
+    open(id){
+
+        const pasta = dados[id];
+
+        if(!pasta){
+
+            console.warn("Pasta não encontrada:",id);
+
+            return;
+
+        }
+
+        if(this.current){
+
+            this.history.push(this.current);
+
+        }
+
+        this.current = id;
+
+        this.renderFolder(pasta);
+
+    }
+
+    // --------------------------
+    // Mostrar pasta
+    // --------------------------
+
+    renderFolder(pasta){
+
+    this.showPage("folder");
+
+    this.folderTitle.textContent = pasta.nome;
+
+    this.folderGrid.innerHTML = "";
 
     pasta.itens.forEach(item=>{
 
-        folderGrid.innerHTML += `
+        const card=this.createCard(
 
-        <div class="card">
+            item.nome,
 
-            <img src="${item.imagem}" alt="${item.nome}">
+            item.imagem,
 
-            <h2>${item.nome}</h2>
+            ()=>{
 
-        </div>
+                // Se possui id, é outra pasta
 
-        `;
+                if(item.id){
+
+                    this.open(item.id);
+
+                }
+
+            }
+
+        );
+
+        this.folderGrid.appendChild(card);
 
     });
 
-}
 
-// Voltar
+    }
+
+    // --------------------------
+    // Voltar
+    // --------------------------
+
+    back(){
+
+        if(this.history.length===0){
+
+            this.renderHome();
+
+            return;
+
+        }
+
+        const anterior = this.history.pop();
+
+        this.current = anterior;
+
+        this.renderFolder(dados[anterior]);
+
+    }
+
+    // --------------------------
+    // Mostrar tela
+    // --------------------------
+
+    showPage(id){
+
+        document.querySelectorAll(".page").forEach(page=>{
+
+            page.classList.remove("active");
+
+        });
+
+        document.getElementById(id).classList.add("active");
+
+    }
+
+    // --------------------------
+    // Criar Card
+    // --------------------------
+
+    createCard(nome,imagem,click){
+
+    const card=document.createElement("div");
+
+    card.className="card";
+
+    const img=document.createElement("img");
+
+    img.src=imagem;
+
+    img.alt=nome;
+
+    img.onerror=()=>{
+
+        img.src="assets/no-image.png";
+
+    };
+
+    const titulo=document.createElement("h2");
+
+    titulo.textContent=nome;
+
+    card.appendChild(img);
+
+    card.appendChild(titulo);
+
+    if(click){
+
+        card.onclick=click;
+
+    }
+
+    return card;
+
+    }
+
+// ==============================
+// Inicialização
+// ==============================
+
+const app = new Gabipedia();
+
+app.start();
+
+// Botão voltar
 function goBack(){
 
-    document.querySelectorAll(".page").forEach(page=>{
-
-        page.classList.remove("active");
-
-    });
-
-    document.getElementById("home").classList.add("active");
-
-    currentPage = "home";
+    app.back();
 
 }
-
-// Inicia o site
-loadHome();
