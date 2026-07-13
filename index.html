@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="style.css">
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -17,7 +18,9 @@
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -29,63 +32,169 @@
 
 </header>
 
+
+
 <section class="hero">
 
     <h1>Gabipedia</h1>
 
-    <p>Tudo o que eu gosto em um só lugar.</p>
+    <p>
+        Tudo o que eu gosto em um só lugar.
+    </p>
 
 </section>
 
+
+
 <div class="search">
 
-    <input
+    <input 
         type="text"
         placeholder="Pesquisar..."
     >
 
 </div>
 
+
+
+
+
 <main id="app">
 
-    <!-- HOME -->
-    <section id="home" class="page active">
 
-        <div id="homeGrid" class="grid">
 
-        </div>
+<!-- =====================
+     HOME
+===================== -->
 
-    </section>
+<section id="home" class="page active">
 
-    <!-- PÁGINA DINÂMICA -->
-    <section id="folder" class="page">
 
-        <button class="back" onclick="goBack()">
+    <div id="homeGrid" class="grid">
 
-            ← Voltar
 
-        </button>
+    </div>
 
-        <div id="breadcrumbs"></div>
 
-        <h1 id="folderTitle"></h1>
+</section>
 
-        <div id="folderGrid" class="grid">
 
-        </div>
 
-    </section>
+
+
+<!-- =====================
+     PASTAS
+===================== -->
+
+<section id="folder" class="page">
+
+
+    <button class="back" onclick="goBack()">
+
+        ← Voltar
+
+    </button>
+
+
+
+    <div id="breadcrumbs">
+
+    </div>
+
+
+
+    <h1 id="folderTitle">
+
+    </h1>
+
+
+
+
+    <div id="folderGrid" class="grid">
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =====================
+     ITEM FINAL
+===================== -->
+
+
+<section id="item" class="page">
+
+
+    <button class="back" onclick="goBack()">
+
+        ← Voltar
+
+    </button>
+
+
+
+
+    <div class="item-view">
+
+
+        <img id="itemImage">
+
+
+
+        <h1 id="itemTitle">
+
+        </h1>
+
+
+
+        <p id="itemDescription">
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
 
 </main>
 
+
+
+
+
+
 <footer>
 
-Gabipedia • v1.0
+    Gabipedia • v1.0
 
 </footer>
 
+
+
+
+
+
 <script src="data.js"></script>
+
 <script src="script.js"></script>
+
 
 </body>
 
