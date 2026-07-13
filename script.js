@@ -47,6 +47,8 @@ class Gabipedia {
 
         this.current = null;
 
+        this.path = [];
+
         this.showPage("home");
 
         this.homeGrid.innerHTML = "";
