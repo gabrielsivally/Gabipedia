@@ -20,6 +20,9 @@ class Gabipedia {
         this.homeGrid = document.getElementById("homeGrid");
         this.folderGrid = document.getElementById("folderGrid");
         this.folderTitle = document.getElementById("folderTitle");
+        this.breaadcrumbs = document.getElementById("breadcrumbs");
+
+        this.path = [];
 
     }
 
@@ -91,6 +94,11 @@ class Gabipedia {
 
         this.current = id;
 
+        this.path.push({
+            id:id,
+            nome:pasta.nome
+        });
+
         this.renderFolder(pasta);
 
     }
@@ -104,6 +112,8 @@ class Gabipedia {
     this.showPage("folder");
 
     this.folderTitle.textContent = pasta.nome;
+
+    this.renderBreadcrumbs();
 
     this.folderGrid.innerHTML = "";
 
@@ -142,19 +152,20 @@ class Gabipedia {
 
     back(){
 
-        if(this.history.length===0){
+        if(this.path.lenght > 1){
 
+            this.path.pop();
+
+            const anterior = this.path[this.path.lenght - 1];
+
+            this.current = anterior.id;
+
+            this.renderFolder(dados[anterior.id]);
+
+        }else{
+            this.path=[]
             this.renderHome();
-
-            return;
-
         }
-
-        const anterior = this.history.pop();
-
-        this.current = anterior;
-
-        this.renderFolder(dados[anterior]);
 
     }
 
