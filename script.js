@@ -1,11 +1,23 @@
-const cards = document.querySelectorAll(".card");
+function openPage(id){
 
-cards.forEach(card=>{
+    document.querySelectorAll(".page").forEach(page=>{
 
-    card.addEventListener("click",()=>{
-
-        alert("Essa categoria será adicionada na Parte 2!");
+        page.classList.remove("active");
 
     });
 
-});
+    document.getElementById(id).classList.add("active");
+
+}
+
+function goHome(){
+
+    document.querySelectorAll(".page").forEach(page=>{
+
+        page.classList.remove("active");
+
+    });
+
+    document.getElementById("home").classList.add("active");
+
+}
