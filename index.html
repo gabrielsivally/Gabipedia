@@ -40,52 +40,95 @@
 
 </div>
 
-<main class="grid">
+<main id="app">
 
-    <div class="card">
-        <img src="assets/pokemon.jpg">
-        <h2>Pokémon</h2>
-    </div>
+    <section id="home" class="page active">
 
-    <div class="card">
-        <img src="assets/anime.jpg">
-        <h2>Animes</h2>
-    </div>
+        <div class="grid">
 
-    <div class="card">
-        <img src="assets/games.jpg">
-        <h2>Jogos</h2>
-    </div>
+            <div class="card" onclick="openPage('pokemon')">
+                <img src="assets/pokemon.jpg">
+                <h2>Pokémon</h2>
+            </div>
 
-    <div class="card">
-        <img src="assets/movie.jpg">
-        <h2>Filmes & Séries</h2>
-    </div>
+            <div class="card" onclick="openPage('anime')">
+                <img src="assets/anime.jpg">
+                <h2>Animes</h2>
+            </div>
 
-    <div class="card">
-        <img src="assets/music.jpg">
-        <h2>Música</h2>
-    </div>
+            <div class="card">
+                <img src="assets/games.jpg">
+                <h2>Jogos</h2>
+            </div>
 
-    <div class="card">
-        <img src="assets/food.jpg">
-        <h2>Comidas</h2>
-    </div>
+            <div class="card">
+                <img src="assets/movie.jpg">
+                <h2>Filmes & Séries</h2>
+            </div>
 
-    <div class="card">
-        <img src="assets/books.jpg">
-        <h2>Livros</h2>
-    </div>
+            <div class="card">
+                <img src="assets/music.jpg">
+                <h2>Música</h2>
+            </div>
 
-    <div class="card">
-        <img src="assets/sports.jpg">
-        <h2>Esportes</h2>
-    </div>
+            <div class="card">
+                <img src="assets/food.jpg">
+                <h2>Comidas</h2>
+            </div>
 
-    <div class="card">
-        <img src="assets/interests.jpg">
-        <h2>Interesses</h2>
-    </div>
+            <div class="card">
+                <img src="assets/books.jpg">
+                <h2>Livros</h2>
+            </div>
+
+            <div class="card">
+                <img src="assets/sports.jpg">
+                <h2>Esportes</h2>
+            </div>
+
+            <div class="card">
+                <img src="assets/interests.jpg">
+                <h2>Interesses</h2>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="pokemon" class="page">
+
+        <button class="back" onclick="goHome()">← Voltar</button>
+
+        <h1>🐉 Pokémon</h1>
+
+        <div class="grid">
+
+            <div class="card"><h2>Favoritos</h2></div>
+            <div class="card"><h2>Times</h2></div>
+            <div class="card"><h2>Jogos</h2></div>
+            <div class="card"><h2>Personagens</h2></div>
+            <div class="card"><h2>Shiny</h2></div>
+            <div class="card"><h2>Living Dex</h2></div>
+
+        </div>
+
+    </section>
+
+    <section id="anime" class="page">
+
+        <button class="back" onclick="goHome()">← Voltar</button>
+
+        <h1>📺 Animes</h1>
+
+        <div class="grid">
+
+            <div class="card"><h2>Favoritos</h2></div>
+            <div class="card"><h2>Personagens</h2></div>
+            <div class="card"><h2>Lista completa</h2></div>
+
+        </div>
+
+    </section>
 
 </main>
 
