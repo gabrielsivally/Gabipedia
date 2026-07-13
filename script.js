@@ -134,9 +134,13 @@ class Gabipedia {
 
                 if(item.id){
 
-                    this.open(item.id);
+    this.open(item.id);
 
-                }
+}else{
+
+    this.openItem(item);
+
+}
 
             }
 
@@ -155,7 +159,19 @@ class Gabipedia {
 
     back(){
 
-        if(this.path.length > 1){
+    const itemPage = document.getElementById("item");
+
+
+    if(itemPage.classList.contains("active")){
+
+        this.showPage("folder");
+
+        return;
+
+    }
+
+
+    if(this.path.length > 1){
 
             this.path.pop();
 
@@ -233,6 +249,33 @@ class Gabipedia {
         });
 
     }
+
+    // --------------------------
+    // Abrir item final
+    // --------------------------
+
+openItem(item){
+
+    this.showPage("item");
+
+
+    this.itemImage.src = item.imagem;
+
+
+    this.itemTitle.textContent = item.nome;
+
+
+    if(item.descricao){
+
+        this.itemDescription.textContent = item.descricao;
+
+    }else{
+
+        this.itemDescription.textContent = " ";
+
+    }
+
+}
     
     // --------------------------
     // Criar Card
