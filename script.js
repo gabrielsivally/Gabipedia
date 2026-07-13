@@ -184,7 +184,53 @@ class Gabipedia {
         document.getElementById(id).classList.add("active");
 
     }
+    
+    // --------------------------
+    // Caminho da navegação
+    // --------------------------
 
+    renderBreadcrumbs(){
+
+        this.breadcrumbs.innerHTML = "";
+
+
+        this.path.forEach((item,index)=>{
+
+
+            const span = document.createElement("span");
+
+            span.textContent = item.nome;
+
+
+            span.onclick = ()=>{
+
+
+                this.path = this.path.slice(0,index+1);
+
+
+                this.current = item.id;
+
+
+                this.renderFolder(dados[item.id]);
+
+
+            };
+
+
+            this.breadcrumbs.appendChild(span);
+
+
+            if(index < this.path.length - 1){
+
+                this.breadcrumbs.innerHTML += " > ";
+
+            }
+
+
+        });
+
+    }
+    
     // --------------------------
     // Criar Card
     // --------------------------
