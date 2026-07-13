@@ -21,6 +21,9 @@ class Gabipedia {
         this.folderGrid = document.getElementById("folderGrid");
         this.folderTitle = document.getElementById("folderTitle");
         this.breadcrumbs = document.getElementById("breadcrumbs");
+        this.itemImage = document.getElementById("itemImage");
+        this.itemTitle = document.getElementById("itemTitle");
+        this.itemDescription = document.getElementById("itemDescription");
 
         this.path = [];
 
