@@ -20,7 +20,7 @@ class Gabipedia {
         this.homeGrid = document.getElementById("homeGrid");
         this.folderGrid = document.getElementById("folderGrid");
         this.folderTitle = document.getElementById("folderTitle");
-        this.breaadcrumbs = document.getElementById("breadcrumbs");
+        this.breadcrumbs = document.getElementById("breadcrumbs");
 
         this.path = [];
 
@@ -152,11 +152,11 @@ class Gabipedia {
 
     back(){
 
-        if(this.path.lenght > 1){
+        if(this.path.length > 1){
 
             this.path.pop();
 
-            const anterior = this.path[this.path.lenght - 1];
+            const anterior = this.path[this.path.length - 1];
 
             this.current = anterior.id;
 
