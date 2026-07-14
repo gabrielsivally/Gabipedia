@@ -231,52 +231,52 @@ personagens:{
 
         {
             nome:"Sanji",
-            imagem:"assets/personagens/sanji.jpg"
+            imagem:"assets/sanji.jpg"
         },
 
         {
             nome:"Aokiji",
-            imagem:"assets/personagens/aokiji.jpg"
+            imagem:"assets/aokiji.jpg"
         },
 
         {
             nome:"Ranpo",
-            imagem:"assets/personagens/ranpo.jpg"
+            imagem:"assets/pranpo.jpg"
         },
 
         {
             nome:"Kana Kimishima",
-            imagem:"assets/personagens/kana.jpg"
+            imagem:"assets/kana.jpg"
         },
 
         {
             nome:"L",
-            imagem:"assets/personagens/l.jpg"
+            imagem:"assets/l.jpg"
         },
 
         {
             nome:"Luffy",
-            imagem:"assets/personagens/luffy.jpg"
+            imagem:"assets/luffy.jpg"
         },
 
         {
             nome:"Robin",
-            imagem:"assets/personagens/robin.jpg"
+            imagem:"assets/robin.jpg"
         },
 
         {
             nome:"Kaiser",
-            imagem:"assets/personagens/kaiser.jpg"
+            imagem:"assets/kaiser.jpg"
         },
 
         {
-            nome:"Dazai",
-            imagem:"assets/personagens/dazai.jpg"
+            nome:"Mori Buntarou",
+            imagem:"assets/mori.png"
         },
 
         {
-            nome:"Shigeo Kageyama",
-            imagem:"assets/personagens/shigeo.jpg"
+            nome:"Shigeo",
+            imagem:"assets/mob.png"
         }
 
     ]
